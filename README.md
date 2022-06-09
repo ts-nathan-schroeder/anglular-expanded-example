@@ -1,6 +1,14 @@
-# AngularApp
+# Thoughtspot Angular Exåmple
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+
+## Liveboard and Search Components
+This app consists of the parimary app component, along with two others: Liveboard and Search. These embed their respective thoughtspot interfaces.
+
+
+## Install Angular 
+`npm install -g @angular/cli`
 
 ## Development server
 
