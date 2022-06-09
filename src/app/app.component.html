@@ -1,2 +1,10 @@
 This is my Angular App!
-<app-search></app-search>
+<button class="btn btn-primary" (click)="search = true" >
+    Search
+</button>
+<button class="btn btn-primary" (click)="search = false" >
+    Liveboard
+</button>
+
+<app-search *ngIf="search"></app-search>
+<app-liveboard  *ngIf="!search"></app-liveboard>
