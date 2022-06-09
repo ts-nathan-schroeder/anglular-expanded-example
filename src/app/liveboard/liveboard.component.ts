@@ -10,7 +10,7 @@ export class LiveboardComponent implements OnInit {
 
   constructor() { 
     init({
-      thoughtSpotHost: 'https://se-thoughtspot-cloud.thoughtspot.cloud/#/',
+      thoughtSpotHost: 'https://my1.thoughtspot.cloud/#/',
       authType: AuthType.None,
     });
   }
@@ -18,7 +18,7 @@ export class LiveboardComponent implements OnInit {
   ngOnInit(): void {
     const tsDiv = document.getElementById('liveboardDiv')!;
     const liveboardEmbed = new LiveboardEmbed(tsDiv, {
-        liveboardId: 'db8e2ba2-6876-4193-898f-84608fbdfea3',
+        liveboardId: '200d4f78-07ad-407e-b35b-191a5cf489b6',
         frameParams: {
             width: '100%',
             height: '100%',

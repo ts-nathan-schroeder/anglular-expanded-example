@@ -10,7 +10,7 @@ export class SearchComponent implements OnInit {
 
   constructor() { 
     init({
-      thoughtSpotHost: 'https://se-thoughtspot-cloud.thoughtspot.cloud/#/',
+      thoughtSpotHost: 'https://my1.thoughtspot.cloud/#/',
       authType: AuthType.None,
     });
   }
