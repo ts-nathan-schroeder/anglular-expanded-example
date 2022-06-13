@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LiveboardEmbed, init, AuthType } from '@thoughtspot/visual-embed-sdk';
+import { LiveboardEmbed } from '@thoughtspot/visual-embed-sdk';
 
 @Component({
   selector: 'app-liveboard',
@@ -9,10 +9,7 @@ import { LiveboardEmbed, init, AuthType } from '@thoughtspot/visual-embed-sdk';
 export class LiveboardComponent implements OnInit {
 
   constructor() { 
-    init({
-      thoughtSpotHost: 'https://my1.thoughtspot.cloud/#/',
-      authType: AuthType.None,
-    });
+
   }
 
   ngOnInit(): void {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchEmbed, init, AuthType } from '@thoughtspot/visual-embed-sdk';
+import { SearchEmbed } from '@thoughtspot/visual-embed-sdk';
 
 @Component({
   selector: 'app-search',
@@ -9,10 +9,7 @@ import { SearchEmbed, init, AuthType } from '@thoughtspot/visual-embed-sdk';
 export class SearchComponent implements OnInit {
 
   constructor() { 
-    init({
-      thoughtSpotHost: 'https://my1.thoughtspot.cloud/#/',
-      authType: AuthType.None,
-    });
+
   }
 
   ngOnInit(): void {
