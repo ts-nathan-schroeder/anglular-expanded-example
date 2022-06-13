@@ -21,6 +21,10 @@ Clone the ThoughtSpot Quickstarts repo.
 Change directories to `thoughtspot-angular`
 
 
+### Install Angular 
+
+`npm install -g @angular/cli`
+
 ### Install dependencies
 
 `npm install`
