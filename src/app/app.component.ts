@@ -8,11 +8,18 @@ import { init, AuthType } from '@thoughtspot/visual-embed-sdk';
 })
 export class AppComponent {
   title = 'angular-app';
+  
+  //Simple true/false. If true show liveboard. False show search.
   search = false;
 
+  //We will be connecting to the Free Trial Server.
+  TS_URL = 'https://my1.thoughtspot.cloud/#/'
+
   constructor() {
+
+    //Iniate connection. In this case AuthType.None means we will be prompted with a login screen
     init({
-      thoughtSpotHost: 'https://my1.thoughtspot.cloud/#/',
+      thoughtSpotHost: this.TS_URL,
       authType: AuthType.None,
     });
   }

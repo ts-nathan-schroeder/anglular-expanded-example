@@ -13,9 +13,6 @@ embedding a liveboard component
 ### Sign up for Free Trial account
 You will need a ThoughtSpot Free Trial account [here](https://www.thoughtspot.com/trial). 
 
-## Liveboard and Search Components
-This app consists of the parimary app component, along with two others: Liveboard and Search. These embed their respective thoughtspot interfaces.
-
 ### Clone Github Repo
 Clone the ThoughtSpot Quickstarts repo.
 

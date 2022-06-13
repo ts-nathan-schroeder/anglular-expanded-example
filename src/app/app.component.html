@@ -1,10 +1,16 @@
-This is my Angular App!
-<button class="btn btn-primary" (click)="search = true" >
-    Search
-</button>
-<button class="btn btn-primary" (click)="search = false" >
-    Liveboard
-</button>
+<div class="navBar">
+    <div class="navLeft"></div>
+        <div class="logo">
+            My Angular App!
+        </div>
+        <div class="navOption" (click)="search = true">
+            Search
+        </div>
+        <div class="navOption" (click)="search = false">
+            Liveboard
+        </div>
+    <div class="navRight"></div>
+</div>
 
 <app-search *ngIf="search"></app-search>
 <app-liveboard  *ngIf="!search"></app-liveboard>

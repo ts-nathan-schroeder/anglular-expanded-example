@@ -2,3 +2,25 @@ app-search, app-liveboard{
     display:flex;
     flex: 1;
 }
+.navBar{
+    display:flex;
+    width:100%;
+    height:50px;
+    flex-direction:row;
+    align-items: center;
+    border-bottom: 1px solid #cccccccc;
+}
+.navOption{
+    width:100px;
+}
+.navOption:hover{
+    font-weight: 600;
+    cursor:pointer;
+}
+.logo{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:50px;
+    margin-right:150px;
+}
