@@ -30,6 +30,8 @@ Change directories to `thoughtspot-angular`
 `npm install`
 
  ### Configure the app
+Once you have activated your free trial, you will want to adjust the `TS_URL` variable in `app.component.ts` to reflect the URL of your free trial environment.
+
 Each embedded component requires a unique identify to tell the Visual Embed SDK which ThoughtSpot component to render. The best way to retrieve the specific id is via the Developer Playground. Depending on which component you are using (Search, Liveboard), the id may be called something slightly different. Refer to the code samples in this project to see the specific names, then, within the Playground, retrieve the required value. For example, when using a Search component, the Visual Embed SDK requires a dataSource id, which can be retrieved by changing the data source [here](https://try-everywhere.thoughtspot.cloud/v2/#/everywhere/playground/search)
 
  ### Run the app
