@@ -12,7 +12,7 @@ export class AppComponent {
   //Simple true/false. If true show liveboard. False show search.
   search = false;
 
-  //We will be connecting to the Free Trial Server.
+  //Update this value to reflect your own free trial environment's URL.
   TS_URL = 'https://my1.thoughtspot.cloud/#/'
 
   constructor() {
