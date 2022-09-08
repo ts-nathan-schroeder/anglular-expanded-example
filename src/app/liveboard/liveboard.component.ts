@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 
 //Load LiveboardEmbed from ThoughtSpot SDK
-import { LiveboardEmbed } from '@thoughtspot/visual-embed-sdk';
+import { LiveboardEmbed,HostEvent, RuntimeFilterOp } from '@thoughtspot/visual-embed-sdk';
 
 @Component({
   selector: 'app-liveboard',
@@ -10,8 +10,26 @@ import { LiveboardEmbed } from '@thoughtspot/visual-embed-sdk';
 })
 export class LiveboardComponent implements OnInit {
   @ViewChild('liveboard') liveboard!: ElementRef;
+  @Input() regionFilter!: string;
+  @Input() liveboardId!: string;
+  liveboardEmbed: LiveboardEmbed | undefined;
 
   ngOnInit(): void {
+
+  }
+  ngOnChanges(changes: any) {
+    if (changes.regionFilter){
+      var region = changes.regionFilter.currentValue
+      if (this.liveboardEmbed){
+
+        // This is the ideal approach but there is a temporary bug.
+        this.liveboardEmbed.trigger(HostEvent.UpdateRuntimeFilters,[{
+          columnName: 'Region',
+          operator: RuntimeFilterOp.EQ,
+          values: [ region ]
+        }])
+      }
+    }
 
   }
   ngAfterViewInit() {
@@ -20,13 +38,13 @@ export class LiveboardComponent implements OnInit {
     // Render Liveboard into template div. 
     // Note the liveboardId refers to the liveboard internal GUID. In this case, the free trial Liveboard.
   
-    const liveboardEmbed = new LiveboardEmbed(tsDiv, {
-        liveboardId: '200d4f78-07ad-407e-b35b-191a5cf489b6',
+    this.liveboardEmbed = new LiveboardEmbed(tsDiv, {
+        liveboardId: this.liveboardId,
         frameParams: {
             width: '100%',
             height: '100%',
         },
     });
-    liveboardEmbed.render();
+    this.liveboardEmbed.render();
   }
 }

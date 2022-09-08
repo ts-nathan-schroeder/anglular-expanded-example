@@ -11,9 +11,18 @@ export class AppComponent {
   
   //Simple true/false. If true show liveboard. False show search.
   search = false;
+  regions = ['','East','West','North','South','Midwest','Southwest']
+  selectedRegion = '';
+  changeRegion (target: EventTarget | null){
+    this.selectedRegion = (<HTMLSelectElement>target).value;
+  }
+  changeRegionString = (value : string) : void =>{
+    console.log("setting region", value)
+    this.selectedRegion = value;
+  }
 
   //Update this value to reflect your own free trial environment's URL.
-  TS_URL = 'https://my1.thoughtspot.cloud/#/'
+  TS_URL = 'https://se-thoughtspot-cloud.thoughtspot.cloud/#/'
 
   constructor() {
 
