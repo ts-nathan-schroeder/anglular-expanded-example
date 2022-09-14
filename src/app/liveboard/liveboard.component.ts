@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 
 //Load LiveboardEmbed from ThoughtSpot SDK
-import { LiveboardEmbed,HostEvent, RuntimeFilterOp } from '@thoughtspot/visual-embed-sdk';
+import { LiveboardEmbed,HostEvent, RuntimeFilterOp, EmbedEvent } from '@thoughtspot/visual-embed-sdk';
 
 @Component({
   selector: 'app-liveboard',
@@ -12,6 +12,7 @@ export class LiveboardComponent implements OnInit {
   @ViewChild('liveboard') liveboard!: ElementRef;
   @Input() regionFilter!: string;
   @Input() liveboardId!: string;
+
   liveboardEmbed: LiveboardEmbed | undefined;
 
   ngOnInit(): void {
@@ -45,6 +46,9 @@ export class LiveboardComponent implements OnInit {
             height: '100%',
         },
     });
+    this.liveboardEmbed.on(EmbedEvent.VizPointDoubleClick, function(event){
+
+    })
     this.liveboardEmbed.render();
   }
 }

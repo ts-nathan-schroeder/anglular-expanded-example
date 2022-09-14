@@ -22,7 +22,7 @@ export class AppComponent {
   }
 
   //Update this value to reflect your own free trial environment's URL.
-  TS_URL = 'https://se-thoughtspot-cloud.thoughtspot.cloud/#/'
+  TS_URL = 'https://my1.thoughtspot.cloud/#/'
 
   constructor() {
 

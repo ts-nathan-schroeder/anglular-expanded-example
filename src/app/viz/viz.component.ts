@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 
 //Load LiveboardEmbed from ThoughtSpot SDK
-import { HostEvent, LiveboardEmbed, RuntimeFilterOp } from '@thoughtspot/visual-embed-sdk';
+import { EmbedEvent, HostEvent, LiveboardEmbed, RuntimeFilterOp } from '@thoughtspot/visual-embed-sdk';
 @Component({
   selector: 'app-viz',
   templateUrl: './viz.component.html',
@@ -16,6 +16,7 @@ export class VizComponent implements OnInit {
   @Input() liveboardId!: string;
   @Input() vizId!: string;
   @Input() regionFilter!: string;
+  @Input() setRegion!: (value: string) => void;
 
   liveboardEmbed: LiveboardEmbed | undefined;
 
@@ -28,14 +29,13 @@ export class VizComponent implements OnInit {
 
         // This is the ideal approach but there is a temporary bug.
 
-
-        // this.liveboardEmbed.trigger(HostEvent.UpdateRuntimeFilters,[{
-        //   columnName: 'Region',
-        //   operator: RuntimeFilterOp.EQ,
-        //   values: [ region ]
-        // }])
-
-        //For now, this does work, but is not nearly as performant as the component will re-render each time the filter is updated.
+        //this does not work
+        this.liveboardEmbed.trigger(HostEvent.UpdateRuntimeFilters,[{
+          columnName: 'Region',
+          operator: RuntimeFilterOp.EQ,
+          values: [ region ]
+        }])
+        //this does work
         this.liveboardEmbed = new LiveboardEmbed(this.viz.nativeElement, {
           liveboardId: this.liveboardId,
           vizId: this.vizId,
@@ -55,6 +55,17 @@ export class VizComponent implements OnInit {
     }
 
   }
+  handleClick(event: any) {
+    console.log("event",event)
+    var attrs = event.data.clickedPoint.selectedAttributes as Array<any>
+    for (var idx in attrs){
+      var attribute = attrs[idx] as any;
+      console.log(attribute,"attr")
+      if (attribute.column.name == 'region'){
+        this.setRegion(attribute.value)
+      }
+    }
+  }
   ngAfterViewInit() {
 
     const tsDiv = this.viz.nativeElement;
@@ -67,5 +78,8 @@ export class VizComponent implements OnInit {
           },
       });
       this.liveboardEmbed.render();
+      this.liveboardEmbed.on(EmbedEvent.VizPointClick,this.handleClick.bind(this))
     }
+
 }
+

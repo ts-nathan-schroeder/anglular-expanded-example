@@ -41,9 +41,9 @@ export class ChartjsvizComponent implements OnInit {
   ngOnInit(): void {
     console.log(this,this.setRegion);
 
-    var worksheet = "e433086d-a93d-460e-b0ed-55a3ee669d80"
-    var query = "[Region][Sales]"
-    var url = "https://se-thoughtspot-cloud.thoughtspot.cloud/callosum/v1/tspublic/v1/searchdata?query_string="+encodeURIComponent(query)+
+    var worksheet = "cd252e5c-b552-49a8-821d-3eadaa049cca"
+    var query = "[region][sales]"
+    var url = "https://my1.thoughtspot.cloud/callosum/v1/tspublic/v1/searchdata?query_string="+encodeURIComponent(query)+
     "&data_source_guid="+worksheet+"&batchsize=-1&pagenumber=-1&offset=-1&formattype=COMPACT"
     fetch(url,
     {
